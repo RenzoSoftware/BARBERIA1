@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <title>Barbería Élite - Tu Look, Nuestra Pasión</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=1">
+  <script src="script.js?v=1" defer></script>
+</head>
+<body>
+  <header class="header">
+    <div class="header__inner">
+      <h1 class="logo">Barbería Élite</h1>
+      <nav class="nav">
+      <a href="#inicio">Inicio</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#" id="openReservas">Reservas</a>
+    </nav>
+    </div>
+  </header>
+
+  <section id="inicio" class="hero">
+    <div class="container">
+      <h2>Estilo y precisión en cada corte</h2>
+      <p>Transformamos tu look con los mejores cortes y estilos</p>
+    </div>
+  </section>
+
+  <section id="servicios" class="section">
+    <div class="container">
+      <h2 class="section__title">Nuestros Servicios</h2>
+      <div class="servicios__grid">
+        <figure class="servicios__muestra">
+          <img src="imagen/afeitado.jpg" alt="Afeitado en Barbería Elite" loading="lazy" />
+          <figcaption>
+            <strong>Afeitado con navaja</strong>
+            <p>Acabado preciso y cuidado de la piel.</p>
+            <ul class="muestra__lista">
+              <li>Preparación de la piel</li>
+              <li>Contornos definidos</li>
+              <li>Productos profesionales</li>
+            </ul>
+          </figcaption>
+        </figure>
+        <figure class="servicios__muestra">
+          <img src="imagen/degradado.jpg" alt="Degradado / Fade" loading="lazy" />
+          <figcaption>
+            <strong>Degradado / Fade</strong>
+            <p>Transiciones limpias y modernas.</p>
+            <ul class="muestra__lista">
+              <li>Laterales en degradado</li>
+              <li>Acabado nítido</li>
+              <li>Adaptado a tu estilo</li>
+            </ul>
+          </figcaption>
+        </figure>
+        <figure class="servicios__muestra">
+          <img src="imagen/dise%C3%B1o%20de%20barba.jpg" alt="Diseño de barba" loading="lazy" />
+          <figcaption>
+            <strong>Diseño de barba</strong>
+            <p>Líneas definidas y cuidado del contorno.</p>
+            <ul class="muestra__lista">
+              <li>Perfilado preciso</li>
+              <li>Simetría y forma</li>
+              <li>Productos para barba</li>
+            </ul>
+          </figcaption>
+        </figure>
+        <figure class="servicios__muestra">
+          <img src="imagen/claisco.jpg" alt="Corte clásico" loading="lazy" />
+          <figcaption>
+            <strong>Corte clásico</strong>
+            <p>Estilo tradicional con acabado limpio.</p>
+            <ul class="muestra__lista">
+              <li>Contornos prolijos</li>
+              <li>Textura uniforme</li>
+              <li>Adaptado a tu rostro</li>
+            </ul>
+          </figcaption>
+        </figure>
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- Modal de Reservas -->
+  <div id="reservasModal" class="modal">
+    <div class="modal__content">
+      <span class="modal__close">&times;</span>
+      <h2 class="modal__title">RESERVAR CITA</h2>
+      
+      <form id="bookingForm" class="booking-form">
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="nombre">Nombre completo *</label>
+            <input type="text" id="nombre" name="nombre" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="telefono">Teléfono *</label>
+            <input type="tel" id="telefono" name="telefono" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email">
+          </div>
+          
+          <div class="form-group">
+            <label for="servicio">Servicio *</label>
+            <select id="servicio" name="servicio" required>
+              <option value="">Selecciona un servicio</option>
+              <option value="corte-clasico">Corte clásico</option>
+              <option value="degradado-fade">Degradado / Fade</option>
+              <option value="afeitado-navaja">Afeitado con navaja</option>
+              <option value="diseno-barba">Diseño de barba</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="fecha">Fecha *</label>
+            <input type="date" id="fecha" name="fecha" required min="">
+          </div>
+          
+          <div class="form-group">
+            <label for="hora">Hora *</label>
+            <select id="hora" name="hora" required>
+              <option value="">Selecciona una hora</option>
+              <option value="09:00">09:00 AM</option>
+              <option value="10:00">10:00 AM</option>
+              <option value="11:00">11:00 AM</option>
+              <option value="12:00">12:00 PM</option>
+              <option value="13:00">01:00 PM</option>
+              <option value="14:00">02:00 PM</option>
+              <option value="15:00">03:00 PM</option>
+              <option value="16:00">04:00 PM</option>
+              <option value="17:00">05:00 PM</option>
+              <option value="18:00">06:00 PM</option>
+              <option value="19:00">07:00 PM</option>
+              <option value="20:00">08:00 PM</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="mensaje">Notas adicionales</label>
+          <textarea id="mensaje" name="mensaje" rows="3" placeholder="Especificaciones especiales o comentarios"></textarea>
+        </div>
+        
+        <button type="submit" class="btn btn--primary">
+           RESERVAR
+        </button>
+        
+        <div id="formStatus" class="form__status"></div>
+      </form>
+    </div>
+  </div>
+
+  <a href="https://wa.me/51923342724" class="whatsapp-float" data-whatsapp data-phone="51923342724">
+     WhatsApp
+  </a>
+  
+  <!-- Contacto y Mapa -->
+  <section id="contacto" class="section">
+    <div class="container">
+      <h2 class="section__title">Contacto y Ubicación</h2>
+      <div class="contact">
+        <div>
+          <h3>Dirección</h3>
+          <p>
+            <a class="contact__address" href="https://www.google.com/maps?q=Av.+Jos%C3%A9+Pardo+123,+Miraflores,+Lima" target="_blank" rel="noopener">
+              Av. José Pardo 123, Miraflores, Lima
+            </a>
+          </p>
+          <p>Horario: Lunes a Sábado, 9:00 AM - 8:00 PM</p>
+          <div class="social-buttons" aria-label="Redes sociales">
+            <a href="https://www.facebook.com/renzo.vds.9/" class="social-btn social-btn--facebook" target="_blank" rel="noopener" aria-label="Facebook"></a>
+            <a href="https://www.instagram.com/renzo_villodas/" class="social-btn social-btn--instagram" target="_blank" rel="noopener" aria-label="Instagram"></a>
+          </div>
+        </div>
+        <div class="map__wrapper">
+          <iframe class="map" src="https://www.google.com/maps?q=Av.+Jos%C3%A9+Pardo+123,+Miraflores,+Lima&z=16&output=embed" loading="lazy" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade" title="Mapa de la barbería"></iframe>
+          <a class="map__overlay" href="https://www.google.com/maps?q=Av.+Jos%C3%A9+Pardo+123,+Miraflores,+Lima" target="_blank" rel="noopener" aria-label="Abrir en Google Maps"></a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span>&copy; Todos los derechos reservados 2025</span>
+    </div>
+  </footer>
+  
+</body>
+</html>
