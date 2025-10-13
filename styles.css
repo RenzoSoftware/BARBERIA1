@@ -636,6 +636,36 @@ input, select, textarea {
   color: rgba(255, 255, 255, 0.8); 
   text-decoration: none; 
 }
+
+/* Testimonios */
+.testimonios__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  margin-top: 12px;
+}
+.testimonial {
+  background-color: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 16px;
+}
+.testimonial__quote {
+  color: rgba(255, 255, 255, 0.9);
+  font-style: italic;
+  margin: 0 0 8px;
+}
+.testimonial__author {
+  color: rgba(255, 255, 255, 0.7);
+}
+.testimonios__cta { margin-top: 16px; text-align: center; }
+
+.testimonios__modal {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
 .link:hover { color: var(--primary); }
 
 /* Social bajo horario */

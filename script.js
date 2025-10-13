@@ -18,6 +18,11 @@ document.addEventListener('DOMContentLoaded', function() {
   const modal = document.getElementById('reservasModal');
   const openReservasBtn = document.getElementById('openReservas');
   const closeModalBtn = document.querySelector('.modal__close');
+
+  // Testimonios modal
+  const testimoniosModal = document.getElementById('testimoniosModal');
+  const openTestimoniosNav = document.getElementById('openTestimonios');
+  const openTestimoniosSection = document.getElementById('openTestimoniosSection');
   
   // Open modal
   if (openReservasBtn) {
@@ -26,39 +31,62 @@ document.addEventListener('DOMContentLoaded', function() {
       openModal();
     });
   }
+  if (openTestimoniosNav) {
+    openTestimoniosNav.addEventListener('click', function(e) {
+      e.preventDefault();
+      openModal(testimoniosModal);
+    });
+  }
+  if (openTestimoniosSection) {
+    openTestimoniosSection.addEventListener('click', function(e) {
+      e.preventDefault();
+      openModal(testimoniosModal);
+    });
+  }
   
   // Close modal
   if (closeModalBtn) {
     closeModalBtn.addEventListener('click', closeModal);
   }
+  // Cerrar modal de testimonios
+  const closeTestimoniosBtn = testimoniosModal ? testimoniosModal.querySelector('.modal__close') : null;
+  if (closeTestimoniosBtn) {
+    closeTestimoniosBtn.addEventListener('click', function() { closeModal(testimoniosModal); });
+  }
   
   // Close modal when clicking outside
   if (modal) {
     modal.addEventListener('click', function(e) {
-      if (e.target === modal) {
-        closeModal();
-      }
+      if (e.target === modal) { closeModal(); }
+    });
+  }
+  if (testimoniosModal) {
+    testimoniosModal.addEventListener('click', function(e) {
+      if (e.target === testimoniosModal) { closeModal(testimoniosModal); }
     });
   }
   
   // Close modal with Escape key
   document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape' && modal && modal.classList.contains('show')) {
-      closeModal();
+    if (e.key === 'Escape') {
+      if (modal && modal.classList.contains('show')) closeModal();
+      if (testimoniosModal && testimoniosModal.classList.contains('show')) closeModal(testimoniosModal);
     }
   });
   
-  function openModal() {
-    if (modal) {
-      modal.classList.add('show');
-      document.body.style.overflow = 'hidden'; // Prevent scrolling
+  function openModal(targetModal) {
+    const m = targetModal || modal;
+    if (m) {
+      m.classList.add('show');
+      document.body.style.overflow = 'hidden';
     }
   }
   
-  function closeModal() {
-    if (modal) {
-      modal.classList.remove('show');
-      document.body.style.overflow = ''; // Enable scrolling
+  function closeModal(targetModal) {
+    const m = targetModal || modal;
+    if (m) {
+      m.classList.remove('show');
+      document.body.style.overflow = '';
     }
   }
 

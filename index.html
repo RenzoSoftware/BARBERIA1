@@ -10,8 +10,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=4">
-  <script src="script.js?v=2" defer></script>
+    <link rel="stylesheet" href="styles.css?v=5">
+  <script src="script.js?v=3" defer></script>
 </head>
 <body>
   <header class="header">
@@ -21,6 +21,7 @@
       <a href="#inicio">Inicio</a>
       <a href="#servicios">Servicios</a>
       <a href="#" id="openReservas">Reservas</a>
+      <a href="#" id="openTestimonios">Testimonios</a>
     </nav>
     </div>
   </header>
@@ -94,6 +95,34 @@
     </div>
   </section>
 
+  <!-- Sección de Testimonios -->
+  <section id="testimonios" class="section">
+    <div class="container">
+      <h2 class="section__title">Testimonios</h2>
+      <div class="testimonios__grid">
+        <blockquote class="testimonial">
+          <p class="testimonial__quote">“El mejor fade que me han hecho en Lima. 100% recomendado.”</p>
+          <cite class="testimonial__author">— Raúl G.</cite>
+        </blockquote>
+        <blockquote class="testimonial">
+          <p class="testimonial__quote">“Precisión en el corte y atención de primera. Volveré siempre.”</p>
+          <cite class="testimonial__author">— Diego P.</cite>
+        </blockquote>
+        <blockquote class="testimonial">
+          <p class="testimonial__quote">“Ambiente cómodo, puntualidad y excelente acabado. Muy profesionales.”</p>
+          <cite class="testimonial__author">— Martín S.</cite>
+        </blockquote>
+        <blockquote class="testimonial">
+          <p class="testimonial__quote">“Me asesoraron el estilo ideal y quedó perfecto.”</p>
+          <cite class="testimonial__author">— Álvaro R.</cite>
+        </blockquote>
+      </div>
+      <div class="testimonios__cta">
+        <button class="btn" id="openTestimoniosSection">Ver más reseñas</button>
+      </div>
+    </div>
+  </section>
+
   <!-- Modal de Reservas -->
   <div id="reservasModal" class="modal">
     <div class="modal__content">
@@ -164,6 +193,32 @@
         
         <div id="formStatus" class="form__status"></div>
       </form>
+    </div>
+  </div>
+
+  <!-- Modal de Testimonios -->
+  <div id="testimoniosModal" class="modal">
+    <div class="modal__content">
+      <span class="modal__close">&times;</span>
+      <h2 class="modal__title">TESTIMONIOS</h2>
+      <div class="testimonios__modal">
+        <blockquote class="testimonial">
+          <p class="testimonial__quote">“El mejor fade que me han hecho en Lima. 100% recomendado.”</p>
+          <cite class="testimonial__author">— Raúl G.</cite>
+        </blockquote>
+        <blockquote class="testimonial">
+          <p class="testimonial__quote">“Precisión en el corte y atención de primera. Volveré siempre.”</p>
+          <cite class="testimonial__author">— Diego P.</cite>
+        </blockquote>
+        <blockquote class="testimonial">
+          <p class="testimonial__quote">“Ambiente cómodo, puntualidad y excelente acabado. Muy profesionales.”</p>
+          <cite class="testimonial__author">— Martín S.</cite>
+        </blockquote>
+        <blockquote class="testimonial">
+          <p class="testimonial__quote">“Me asesoraron el estilo ideal y quedó perfecto.”</p>
+          <cite class="testimonial__author">— Álvaro R.</cite>
+        </blockquote>
+      </div>
     </div>
   </div>
 
