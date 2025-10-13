@@ -881,3 +881,12 @@ input, select, textarea {
   .contact { grid-template-columns: 1fr; }
   .map { height: 260px; }
 }
+/* Ajuste de scroll en modal para móviles */
+@media (max-width: 600px) {
+  .modal__content {
+    margin: 2vh auto;
+    max-height: 90vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
