@@ -722,14 +722,14 @@ input, select, textarea {
   position: relative;
   background: rgba(0, 0, 0, 0.95);
   backdrop-filter: blur(20px);
-  margin: 5% auto;
+  margin: 0 auto;
   padding: 30px;
   border: 2px solid #eab308;
   border-radius: 16px;
   width: 90%;
   max-width: 600px;
-  max-height: 80vh;
-  overflow-y: auto;
+  max-height: 90vh;
+  overflow: hidden;
   transform: translateY(-50px);
   transition: transform 0.3s ease;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 20px rgba(234, 179, 8, 0.3);
