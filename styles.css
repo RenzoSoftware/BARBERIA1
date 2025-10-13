@@ -302,7 +302,21 @@ body::before {
 }
 @media (max-width: 640px) {
   .servicios__grid { grid-template-columns: 1fr; }
-  .servicios__muestra img { height: 200px; }
+.servicios__muestra img { height: 200px; }
+}
+
+/* Precio debajo de la imagen de servicio */
+.service__price {
+  margin: 10px 0 12px;
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 1.125rem;
+  display: inline-block;
+  padding: 6px 10px;
+  border: 1px solid rgba(247, 206, 104, 0.35);
+  border-radius: 8px;
+  background: rgba(247, 206, 104, 0.08);
+  text-shadow: 0 0 6px rgba(234, 179, 8, 0.25);
 }
 
 /* Tarjetas casi transparentes */
