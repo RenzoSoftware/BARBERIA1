@@ -104,10 +104,12 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
       }
       
-      // Validate phone number (basic validation)
-      const phoneRegex = /^[0-9+\-\s()]{10,}$/;
-      if (!phoneRegex.test(bookingData.telefono)) {
-        showFormStatus('Por favor, ingresa un número de teléfono válido', 'error');
+      const digits = String(bookingData.telefono).replace(/\D/g, '');
+      const isValidPeruMobile =
+        (digits.length === 9 && digits.startsWith('9')) ||
+        (digits.length === 11 && digits.startsWith('51') && digits[2] === '9');
+      if (!isValidPeruMobile) {
+        showFormStatus('Por favor, ingresa un teléfono móvil válido (9 dígitos) o con código +51.', 'error');
         return;
       }
       
