@@ -116,19 +116,34 @@ document.addEventListener('DOMContentLoaded', function() {
       try {
         // Show loading state
         showFormStatus('Procesando tu reserva...', 'loading');
-        
-        // Simulate API call (replace with your actual backend endpoint)
-        await simulateBooking(bookingData);
-        
+
+        const isLocal = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+        let responseData;
+        if (isLocal) {
+          // Local: mantener simulación para desarrollo
+          responseData = await simulateBooking(bookingData);
+        } else {
+          // Producción: enviar a backend
+          const res = await fetch('/api/reservas', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(bookingData)
+          });
+          responseData = await res.json();
+          if (!res.ok || !responseData.ok) {
+            throw new Error(responseData.error || 'Error al enviar la reserva');
+          }
+        }
+
         // Show success message
         showFormStatus('¡Reserva confirmada! Te contactaremos pronto para confirmar.', 'success');
-        
+
         // Send WhatsApp notification to business
         sendWhatsAppNotification(bookingData);
-        
+
         // Reset form
         bookingForm.reset();
-        
+
       } catch (error) {
         showFormStatus('Error al procesar la reserva. Por favor, intenta nuevamente.', 'error');
         console.error('Booking error:', error);
