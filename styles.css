@@ -181,7 +181,7 @@ body::before {
 
 /* Tipografía del hero (inicio) */
 .hero h2 {
-  font-family: 'League Spartan', 'Barlow Condensed', sans-serif;
+  font-family: 'Prata', 'Playfair Display', serif;
   font-size: 3.2rem;
   line-height: 1.2;
   margin: 0 0 12px;
@@ -210,7 +210,7 @@ body::before {
 }
 
 .section__title {
-  font-family: 'League Spartan', 'Barlow Condensed', sans-serif;
+  font-family: 'Prata', 'Playfair Display', serif;
   font-size: 2.2rem;
   margin: 0 0 24px;
   color: rgba(255, 255, 255, 0.98);
