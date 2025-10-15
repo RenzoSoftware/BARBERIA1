@@ -301,8 +301,22 @@ body::before {
   .servicios__grid { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 640px) {
-  .servicios__grid { grid-template-columns: 1fr; }
-.servicios__muestra img { height: 200px; }
+  .servicios__grid {
+    display: flex;
+    overflow-x: auto;
+    gap: 16px;
+    padding: 8px 12px 12px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+  .servicios__grid::-webkit-scrollbar { height: 6px; }
+  .servicios__grid::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.15); border-radius: 3px; }
+  .servicios__muestra {
+    flex: 0 0 80%;
+    max-width: 80%;
+    scroll-snap-align: start;
+  }
+ .servicios__muestra img { height: 200px; }
 }
 
 /* Precio debajo de la imagen de servicio */
