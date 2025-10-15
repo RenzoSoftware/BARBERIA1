@@ -30,6 +30,9 @@
     padding: 0 16px;
   }
   .nav__toggle { display: inline-flex; z-index: 1101; }
+  /* Mostrar las tres líneas en fila (— — —) en móvil */
+  .nav__toggle { flex-direction: row; gap: 6px; }
+  .nav__toggle span + span { margin-top: 0; }
   .nav {
     position: fixed;
     top: 64px; /* altura del header */
