@@ -30,8 +30,8 @@
     padding: 0 16px;
   }
   .nav__toggle { display: inline-flex; z-index: 1101; }
-  /* Mostrar las tres líneas en fila (— — —) en móvil */
-  .nav__toggle { flex-direction: row; gap: 6px; }
+  /* Hamburguesa clásica: tres líneas apiladas verticalmente en móvil */
+  .nav__toggle { flex-direction: column; gap: 4px; }
   .nav__toggle span + span { margin-top: 0; }
   .nav {
     position: fixed;
