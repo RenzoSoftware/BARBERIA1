@@ -11,8 +11,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css?v=12">
-    <link rel="stylesheet" href="Responsive.css?v=9">
-  <script src="script.js?v=7" defer></script>
+    <link rel="stylesheet" href="Responsive.css?v=10">
+  <script src="script.js?v=8" defer></script>
 </head>
 <body>
   <header class="header">
@@ -32,6 +32,18 @@
     </div>
     <div class="nav__backdrop" id="navBackdrop" hidden></div>
   </header>
+  <!-- Modal del menú móvil -->
+  <div id="navModal" class="modal" role="dialog" aria-modal="true" aria-label="Menú de navegación">
+    <div class="modal__content nav-modal__content">
+      <span class="modal__close" aria-label="Cerrar menú">&times;</span>
+      <nav class="nav-modal" aria-label="Menú">
+        <a href="#inicio">Inicio</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#" id="openReservasMobile">Reservas</a>
+        <a href="#" id="openTestimoniosMobile">Testimonios</a>
+      </nav>
+    </div>
+  </div>
 
   <section id="inicio" class="hero">
     <div class="container">

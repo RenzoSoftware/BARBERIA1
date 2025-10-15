@@ -18,6 +18,9 @@ document.addEventListener('DOMContentLoaded', function() {
   const nav = document.getElementById('nav');
   const navToggle = document.getElementById('navToggle');
   const navBackdrop = document.getElementById('navBackdrop');
+  const navModal = document.getElementById('navModal');
+  const openReservasMobile = document.getElementById('openReservasMobile');
+  const openTestimoniosMobile = document.getElementById('openTestimoniosMobile');
 
   function closeNav() {
     if (nav) nav.classList.remove('nav--open');
@@ -34,13 +37,16 @@ document.addEventListener('DOMContentLoaded', function() {
     document.body.style.overflow = 'hidden';
   }
 
+  // En móvil, el botón abre/cierra el modal del menú
   if (navToggle) {
     navToggle.addEventListener('click', function() {
-      const isOpen = nav && nav.classList.contains('nav--open');
-      if (isOpen) {
-        closeNav();
+      const isModalOpen = navModal && navModal.classList.contains('show');
+      if (isModalOpen) {
+        closeModal(navModal);
+        navToggle.setAttribute('aria-expanded', 'false');
       } else {
-        openNav();
+        openModal(navModal);
+        navToggle.setAttribute('aria-expanded', 'true');
       }
     });
   }
@@ -49,10 +55,12 @@ document.addEventListener('DOMContentLoaded', function() {
     navBackdrop.addEventListener('click', closeNav);
   }
 
-  if (nav) {
-    nav.querySelectorAll('a').forEach(a => {
+  // Cerrar menú modal al seleccionar un enlace
+  if (navModal) {
+    navModal.querySelectorAll('a').forEach(a => {
       a.addEventListener('click', function() {
-        closeNav();
+        closeModal(navModal);
+        navToggle && navToggle.setAttribute('aria-expanded', 'false');
       });
     });
   }
@@ -60,6 +68,10 @@ document.addEventListener('DOMContentLoaded', function() {
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
       closeNav();
+      if (navModal && navModal.classList.contains('show')) {
+        closeModal(navModal);
+        navToggle && navToggle.setAttribute('aria-expanded', 'false');
+      }
     }
   });
 
@@ -81,9 +93,25 @@ document.addEventListener('DOMContentLoaded', function() {
       openModal();
     });
   }
+  if (openReservasMobile) {
+    openReservasMobile.addEventListener('click', function(e) {
+      e.preventDefault();
+      closeModal(navModal);
+      navToggle && navToggle.setAttribute('aria-expanded', 'false');
+      openModal();
+    });
+  }
   if (openTestimoniosNav) {
     openTestimoniosNav.addEventListener('click', function(e) {
       e.preventDefault();
+      openModal(testimoniosModal);
+    });
+  }
+  if (openTestimoniosMobile) {
+    openTestimoniosMobile.addEventListener('click', function(e) {
+      e.preventDefault();
+      closeModal(navModal);
+      navToggle && navToggle.setAttribute('aria-expanded', 'false');
       openModal(testimoniosModal);
     });
   }
@@ -135,12 +163,24 @@ document.addEventListener('DOMContentLoaded', function() {
       if (e.target === testimoniosModal) { closeModal(testimoniosModal); }
     });
   }
+  if (navModal) {
+    navModal.addEventListener('click', function(e) {
+      if (e.target === navModal) {
+        closeModal(navModal);
+        navToggle && navToggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  }
   
   // Close modal with Escape key
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
       if (modal && modal.classList.contains('show')) closeModal();
       if (testimoniosModal && testimoniosModal.classList.contains('show')) closeModal(testimoniosModal);
+      if (navModal && navModal.classList.contains('show')) {
+        closeModal(navModal);
+        navToggle && navToggle.setAttribute('aria-expanded', 'false');
+      }
     }
   });
   
