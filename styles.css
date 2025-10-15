@@ -22,6 +22,15 @@ body {
   letter-spacing: 0.2px;
 }
 
+/* Ocultar la barra de desplazamiento del navegador (mantener scroll) */
+html, body {
+  -ms-overflow-style: none; /* IE y Edge */
+  scrollbar-width: none;    /* Firefox */
+}
+html::-webkit-scrollbar, body::-webkit-scrollbar {
+  display: none;            /* Chrome y Safari */
+}
+
 /* Fondo global con overlay mínimo */
 body::before {
   content: "";
