@@ -246,6 +246,9 @@ body::before {
   padding: 22px;
   min-height: 440px;
   backdrop-filter: blur(6px);
+  /* Centrado visual de cada tarjeta en su columna */
+  max-width: 320px;
+  margin: 20px auto;
 }
 
 .servicios__muestra img {

@@ -122,7 +122,8 @@
   .servicios__muestra {
     flex: 0 0 80%;
     max-width: 80%;
-    scroll-snap-align: start;
+    scroll-snap-align: center;
+    margin: 0 auto; /* centrar en viewport */
   }
   .servicios__muestra img { height: 200px; }
 }
