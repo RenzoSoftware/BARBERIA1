@@ -107,6 +107,17 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   }
+
+  // Delegación de eventos: cerrar cualquier modal al pulsar su .modal__close
+  document.addEventListener('click', function(e) {
+    const closeEl = e.target.closest('.modal__close');
+    if (closeEl) {
+      const modalEl = closeEl.closest('.modal');
+      if (modalEl) {
+        closeModal(modalEl);
+      }
+    }
+  });
   // Cerrar modal de testimonios
   const closeTestimoniosBtn = testimoniosModal ? testimoniosModal.querySelector('.modal__close') : null;
   if (closeTestimoniosBtn) {
