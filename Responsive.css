@@ -6,6 +6,8 @@
     gap: 16px;
   }
   .nav a { margin: 0 8px; }
+  /* Logo más compacto en móvil */
+  .logo img { height: 28px; max-width: 120px; }
 }
 
 /* Navbar móvil: panel deslizante con overlay */

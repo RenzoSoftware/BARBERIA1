@@ -68,7 +68,7 @@ body::before {
   padding: 0 16px;
 }
 .logo { display: inline-flex; align-items: center; text-decoration: none; }
-.logo img { height: 36px; display: block; }
+.logo img { height: 32px; width: auto; max-width: 140px; display: block; }
 .nav a {
   color: rgba(255, 255, 255, 0.95);
   text-decoration: none;
@@ -95,20 +95,19 @@ body::before {
   cursor: pointer;
   align-items: center;
   justify-content: center;
-  gap: 5px;
+  gap: 4px;
 }
 .nav__toggle span {
   display: block;
-  width: 24px;
-  height: 3px;
+  width: 28px;
+  height: 2px;
   background: var(--accent);
   border-radius: 2px;
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
-.nav__toggle span + span { margin-top: 5px; }
-.nav__toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-.nav__toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
-.nav__toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.nav__toggle span + span { margin-top: 4px; }
+/* Mantener tres líneas horizontales incluso cuando el menú esté abierto */
+.nav__toggle[aria-expanded="true"] span { transform: none; opacity: 1; }
 
 /* (migrado a Responsive.css) */
 
@@ -231,6 +230,7 @@ body::before {
   grid-template-columns: repeat(4, 1fr);
   gap: 28px;
   align-items: start;
+  justify-items: center;
 }
 
 /* Muestra referencial bajo 'Nuestros Servicios' */
@@ -238,7 +238,7 @@ body::before {
   margin-top: 12px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   gap: 18px;
   background: rgba(21, 25, 34, 0.25);
   border: 1px solid rgba(255, 255, 255, 0.08);
