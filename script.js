@@ -14,6 +14,55 @@ document.querySelectorAll('a[href^="#"]:not([href="#"])').forEach(anchor => {
 
 // WhatsApp button functionality and Modal functionality
 document.addEventListener('DOMContentLoaded', function() {
+  // Navbar móvil (toggle hamburguesa)
+  const nav = document.getElementById('nav');
+  const navToggle = document.getElementById('navToggle');
+  const navBackdrop = document.getElementById('navBackdrop');
+
+  function closeNav() {
+    if (nav) nav.classList.remove('nav--open');
+    if (navToggle) navToggle.setAttribute('aria-expanded', 'false');
+    if (navBackdrop) navBackdrop.classList.remove('show');
+    const anyModalOpen = document.querySelector('.modal.show');
+    document.body.style.overflow = anyModalOpen ? 'hidden' : '';
+  }
+
+  function openNav() {
+    if (nav) nav.classList.add('nav--open');
+    if (navToggle) navToggle.setAttribute('aria-expanded', 'true');
+    if (navBackdrop) navBackdrop.classList.add('show');
+    document.body.style.overflow = 'hidden';
+  }
+
+  if (navToggle) {
+    navToggle.addEventListener('click', function() {
+      const isOpen = nav && nav.classList.contains('nav--open');
+      if (isOpen) {
+        closeNav();
+      } else {
+        openNav();
+      }
+    });
+  }
+
+  if (navBackdrop) {
+    navBackdrop.addEventListener('click', closeNav);
+  }
+
+  if (nav) {
+    nav.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', function() {
+        closeNav();
+      });
+    });
+  }
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      closeNav();
+    }
+  });
+
   // Modal functionality
   const modal = document.getElementById('reservasModal');
   const openReservasBtn = document.getElementById('openReservas');
@@ -86,7 +135,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const m = targetModal || modal;
     if (m) {
       m.classList.remove('show');
-      document.body.style.overflow = '';
+      // Si hay menú móvil abierto, mantener bloqueo de scroll; de lo contrario, liberar
+      const isNavOpen = nav && nav.classList.contains('nav--open');
+      document.body.style.overflow = isNavOpen ? 'hidden' : '';
     }
   }
 

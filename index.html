@@ -10,20 +10,27 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=6">
-  <script src="script.js?v=3" defer></script>
+    <link rel="stylesheet" href="styles.css?v=9">
+    <link rel="stylesheet" href="Responsive.css?v=2">
+  <script src="script.js?v=6" defer></script>
 </head>
 <body>
   <header class="header">
     <div class="header__inner">
-      <h1 class="logo">Barbería Élite</h1>
-      <nav class="nav">
+      <a class="logo" href="#inicio" aria-label="Barbería Élite - Inicio">
+        <img src="imagen/logo.svg" alt="Barbería Élite" loading="eager" />
+      </a>
+      <button class="nav__toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav nav--full" id="nav">
       <a href="#inicio">Inicio</a>
       <a href="#servicios">Servicios</a>
       <a href="#" id="openReservas">Reservas</a>
       <a href="#" id="openTestimonios">Testimonios</a>
     </nav>
     </div>
+    <div class="nav__backdrop" id="navBackdrop" hidden></div>
   </header>
 
   <section id="inicio" class="hero">
