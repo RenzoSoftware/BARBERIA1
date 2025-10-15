@@ -66,7 +66,8 @@ document.addEventListener('DOMContentLoaded', function() {
   // Modal functionality
   const modal = document.getElementById('reservasModal');
   const openReservasBtn = document.getElementById('openReservas');
-  const closeModalBtn = document.querySelector('.modal__close');
+  // Vincular el botón de cierre específicamente al modal de reservas
+  const closeModalBtn = modal ? modal.querySelector('.modal__close') : null;
 
   // Testimonios modal
   const testimoniosModal = document.getElementById('testimoniosModal');
@@ -96,6 +97,15 @@ document.addEventListener('DOMContentLoaded', function() {
   // Close modal
   if (closeModalBtn) {
     closeModalBtn.addEventListener('click', closeModal);
+    // Accesible: cerrar con Enter/Espacio cuando tiene foco
+    closeModalBtn.setAttribute('role', 'button');
+    closeModalBtn.setAttribute('tabindex', '0');
+    closeModalBtn.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        closeModal();
+      }
+    });
   }
   // Cerrar modal de testimonios
   const closeTestimoniosBtn = testimoniosModal ? testimoniosModal.querySelector('.modal__close') : null;
